@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "page": {
+    "id": "teamwork_calculator",
+    "title": "Teamwork Score Calculator",
+    "sections": [
+      {
+        "type": "counters",
+        "title": "Bean Bags",
+        "fields": [
+          {
+            "key": "dropZoneTopCleared",
+            "label": "Tops Cleared",
+            "max": 7
+          },
+          {
+            "key": "greenBeanBags",
+            "label": "Green Drop Zone Bags",
+            "max": 7
+          },
+          {
+            "key": "blueBeanBags",
+            "label": "Blue Drop Zone Bags",
+            "max": 7
+          }
+        ]
+      },
+      {
+        "type": "counters",
+        "title": "Balls",
+        "fields": [
+          {
+            "key": "neutralBalls",
+            "label": "Neutral Balls",
+            "max": 10
+          },
+          {
+            "key": "greenBalls",
+            "label": "Green Balls",
+            "max": 10
+          },
+          {
+            "key": "blueBalls",
+            "label": "Blue Balls",
+            "max": 10
+          }
+        ]
+      },
+      {
+        "type": "enums",
+        "title": "Drone Landings",
+        "key": "droneSelection",
+        "options": ["None","Small Cube","Large Cube","Landing Pad","Bullseye"],
+        "values":  [   0   ,    25     ,     15      ,      15      ,    25    ]
+      }
+    ],
+    "formula": "dropZoneTopCleared + neutralBalls + greenBeanBags + blueBeanBags + greenBalls + blueBalls + (greenBeanBags>0 ? greenBalls*greenBeanBags*2 : 0) + (blueBeanBags>0 ? blueBalls*blueBeanBags*2 : 0) + droneSelection[0] + droneSelection[1]"
+  }
+}
